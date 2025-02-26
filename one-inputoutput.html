@@ -6,6 +6,7 @@
     <title>1 INPUT 1 OUTPUT TEMPLATE</title>
     <style>
       body {
+        font-family: "Times New Roman", Times, serif;
         margin: 0;
         padding: 0;
         background-color: black;
@@ -17,10 +18,17 @@
       }
 
       h1 {
-        font-family: "Times New Roman", Times, serif;
         text-align: center;
         font-size: 3rem;
         color: rgb(255, 255, 255);
+        background-color: #000000;
+        padding: 2rem;
+      }
+
+      p{
+        color: rgb(255, 255, 255);
+        font-size: 1.4rem;
+
       }
 
       h1:hover {
@@ -35,31 +43,73 @@
       }
       /* STYLE FOR THE INPUT FIELD */
       #charInput {
+        font-family: "Times New Roman", Times, serif;
         width: 12vw;
         height: 6rem;
         font-size: 3rem;
         margin-bottom: 1rem;
         text-align: center;
         border-radius: 60px;
+
+        position: relative;
+        outline: none;
+        text-decoration: none;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.5;
+
+        height: 60px;
+        width: 210px;
+
+        background-color: rgb(255, 255, 255);
+        border: 4px solid rgb(60, 96, 254);
       }
 
       /* STYLE FOR THE SUBMIT BUTTON */
       #submitButton {
+        font-family: "Times New Roman", Times, serif;
         width: 12vw;
         height: 6rem;
         margin: 10 auto;
         font-size: 3rem;
 
+        position: relative;
+        outline: none;
+        text-decoration: none;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: 60px;
+        width: 210px;
+        opacity: 1;
+        background-color: black;
+        border: 4px solid rgb(60, 96, 254);
+
         border-radius: 60px;
         transition: background-color 0.2s ease-in-out;
-        transition: color 0.2s ease-in-out;
+      }
+
+      span {
+        color: rgb(249, 251, 254);
+        font-size: 2.5rem;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+      }
+
+      span:hover {
+        animation: storm 0.7s ease-in-out;
+        animation-delay: 0.06s;
       }
 
       #submitButton:hover {
-        background-color: rgb(67, 45, 237);
+        background-color: rgb(60, 96, 254);
         color: white;
-        transition: background-color 0.2s ease-in-out;
-        transition: color 0.2s ease-in-out;
+        animation: rotate 0.7s ease-in-out both;
+        animation-delay: 0.06s;
       }
 
       /* STYLE FOR THE IMAGE */
@@ -69,38 +119,61 @@
         margin-top: 2rem;
       }
 
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg) translate3d(0, 0, 0);
+        }
+        25% {
+          transform: rotate(3deg) translate3d(0, 0, 0);
+        }
+        50% {
+          transform: rotate(-3deg) translate3d(0, 0, 0);
+        }
+        75% {
+          transform: rotate(1deg) translate3d(0, 0, 0);
+        }
+        100% {
+          transform: rotate(0deg) translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes storm {
+        0% {
+          transform: translate3d(0, 0, 0) translateZ(0);
+        }
+        25% {
+          transform: translate3d(4px, 0, 0) translateZ(0);
+        }
+        50% {
+          transform: translate3d(-3px, 0, 0) translateZ(0);
+        }
+        75% {
+          transform: translate3d(2px, 0, 0) translateZ(0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0) translateZ(0);
+        }
+      }
+
       @media (max-width: 600px) {
         h1 {
           font-size: 2rem;
-        }
-
-        #charInput {
-          width: 12rem;
-          height: 6rem;
-          font-size: 3rem;
-          margin-bottom: 2rem;
-          text-align: center;
-        }
-
-        /* STYLE FOR THE SUBMIT BUTTON */
-        #submitButton {
-          width: 12rem;
-          height: 6rem;
-          margin: 10 auto;
-          font-size: 3rem;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Type a Letter from A to P</h1>
+    <h1>The Clown's Pose is Up to You</h1>
 
     <div>
+      <p>Type a Letter from As You Wish</p>
       <!-- INPUT FIELD FOR 1 CHARACTER -->
       <input type="text" id="charInput" maxlength="1" />
 
       <!-- BUTTON TO DISPLAY IMAGE -->
-      <button onclick="displayImage()" id="submitButton">GO!</button>
+      <button onclick="displayImage()" id="submitButton">
+        <span>Play</span>
+      </button>
 
       <!-- IMAGE TO DISPLAY -->
       <img id="displayedImage" src="" alt="Displayed Image" />
